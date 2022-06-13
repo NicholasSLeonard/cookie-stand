@@ -47,6 +47,19 @@ function displayList(city) {
         li.appendChild(document.createTextNode(dayHours[i] + ": " + city.hourlySales[i] + " cookies"));
         ul.appendChild(li);
     }
+    let li = document.createElement('li');
+        li.appendChild(document.createTextNode("Total: " + calcTotal(city) + " cookies"));
+        ul.appendChild(li);
+}
+
+function calcTotal(city)
+{
+    let total = 0;
+    for(let i = 0; i < city.hourlySales.length; i++)
+    {
+        total += city.hourlySales[i];
+    }
+    return total;
 }
 
 for(let i = 0; i < dayHours.length; i++)
