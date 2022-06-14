@@ -5,35 +5,41 @@ let seattle =
     minCustomers: 23,
     maxCustomers: 65,
     avgSales: 6.3,
-    hourlySales: []
+    hourlySales: [],
+    total:0
+    
 };
 let tokyo =
 {
     minCustomers: 3,
     maxCustomers: 24,
     avgSales: 1.2,
-    hourlySales: []
+    hourlySales: [],
+    total:0
 };
 let dubai =
 {
     minCustomers: 11,
     maxCustomers: 38,
     avgSales: 3.7,
-    hourlySales: []
+    hourlySales: [],
+    total:0
 };
 let paris =
 {
     minCustomers: 20,
     maxCustomers: 38,
     avgSales: 2.3,
-    hourlySales: []
+    hourlySales: [],
+    total:0
 };
 let lima =
 {
     minCustomers: 2,
     maxCustomers: 16,
     avgSales: 4.6,
-    hourlySales: []
+    hourlySales: [],
+    total:0
 };
 
 function genRandom(min, max) {
@@ -44,11 +50,11 @@ function displayList(city) {
     let ul = document.getElementById('List');
     for (let i = 0; i < dayHours.length; i++) {
         let li = document.createElement('li');
-        li.appendChild(document.createTextNode(dayHours[i] + ": " + city.hourlySales[i] + " cookies"));
+        li.appendChild(document.createTextNode(dayHours[i] + ": " + Math.floor(city.hourlySales[i] * city.avgSales) + " cookies"));
         ul.appendChild(li);
     }
     let li = document.createElement('li');
-        li.appendChild(document.createTextNode("Total: " + calcTotal(city) + " cookies"));
+        li.appendChild(document.createTextNode("Total: " + city.total + " cookies"));
         ul.appendChild(li);
 }
 
@@ -57,13 +63,14 @@ function calcTotal(city)
     let total = 0;
     for(let i = 0; i < city.hourlySales.length; i++)
     {
-        total += city.hourlySales[i];
+        total += Math.floor(city.hourlySales[i] * city.avgSales);
     }
-    return total;
+    city.total = total;
 }
 
 for(let i = 0; i < dayHours.length; i++)
 {
     seattle.hourlySales[i] = genRandom(23,65);
 }
+calcTotal(seattle);
 displayList(seattle);
