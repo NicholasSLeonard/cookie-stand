@@ -6,8 +6,8 @@ let seattle =
     maxCustomers: 65,
     avgSales: 6.3,
     hourlySales: [],
-    total:0
-    
+    total:0,
+    cityName: "Seattle"
 };
 let tokyo =
 {
@@ -15,7 +15,8 @@ let tokyo =
     maxCustomers: 24,
     avgSales: 1.2,
     hourlySales: [],
-    total:0
+    total:0,
+    cityName: "Tokyo"
 };
 let dubai =
 {
@@ -23,7 +24,8 @@ let dubai =
     maxCustomers: 38,
     avgSales: 3.7,
     hourlySales: [],
-    total:0
+    total:0,
+    cityName: "Dubai"
 };
 let paris =
 {
@@ -31,7 +33,8 @@ let paris =
     maxCustomers: 38,
     avgSales: 2.3,
     hourlySales: [],
-    total:0
+    total:0,
+    cityName: "Paris"
 };
 let lima =
 {
@@ -39,7 +42,8 @@ let lima =
     maxCustomers: 16,
     avgSales: 4.6,
     hourlySales: [],
-    total:0
+    total:0,
+    cityName: "Lima"
 };
 
 function genRandom(min, max) {
@@ -47,7 +51,7 @@ function genRandom(min, max) {
 }
 
 function displayList(city) {
-    let ul = document.getElementById('List');
+    let ul = document.getElementById(city.cityName);
     for (let i = 0; i < dayHours.length; i++) {
         let li = document.createElement('li');
         li.appendChild(document.createTextNode(dayHours[i] + ": " + Math.floor(city.hourlySales[i] * city.avgSales) + " cookies"));
@@ -68,9 +72,26 @@ function calcTotal(city)
     city.total = total;
 }
 
-for(let i = 0; i < dayHours.length; i++)
+function newDay()
 {
-    seattle.hourlySales[i] = genRandom(23,65);
+    for(let i = 0; i < dayHours.length; i++)
+{
+    seattle.hourlySales[i] = genRandom(seattle.minCustomers,seattle.maxCustomers);
+    calcTotal(seattle);
+    tokyo.hourlySales[i] = genRandom(tokyo.minCustomers,tokyo.maxCustomers);
+    calcTotal(tokyo);
+    dubai.hourlySales[i] = genRandom(dubai.minCustomers,dubai.maxCustomers);
+    calcTotal(dubai);
+    paris.hourlySales[i] = genRandom(paris.minCustomers,paris.maxCustomers);
+    calcTotal(paris);
+    lima.hourlySales[i] = genRandom(lima.minCustomers,lima.maxCustomers);
+    calcTotal(lima);
 }
-calcTotal(seattle);
+}
+
+newDay();
 displayList(seattle);
+displayList(tokyo);
+displayList(dubai);
+displayList(paris);
+displayList(lima);
