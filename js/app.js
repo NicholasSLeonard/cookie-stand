@@ -21,7 +21,7 @@ NewCity.prototype.calcTotal = function () {
   this.total = total;
 };
 
-function displayTableHeading() {
+function renderHeading() {
 
   let tr = document.getElementById('Cities');
   let th = document.createElement('th');
@@ -37,7 +37,7 @@ function displayTableHeading() {
   tr.appendChild(th);
 }
 
-NewCity.prototype.displayTable = function () {
+NewCity.prototype.renderRow = function () {
   let tr = document.getElementById(this.cityName);
   for (let i = 0; i < dayHours.length; i++) {
     let th = document.createElement('th');
@@ -64,14 +64,14 @@ let dubai = new NewCity(11, 38, 3.7, 'Dubai');
 let paris = new NewCity(20, 38, 2.3, 'Paris');
 let lima = new NewCity(2, 16, 3.6, 'Lima');
 
-displayTableHeading();
+renderHeading();
 seattle.genSales();
-seattle.displayTable();
+seattle.renderRow();
 tokyo.genSales();
-tokyo.displayTable();
+tokyo.renderRow();
 dubai.genSales();
-dubai.displayTable();
+dubai.renderRow();
 paris.genSales();
-paris.displayTable();
+paris.renderRow();
 lima.genSales();
-lima.displayTable();
+lima.renderRow();
