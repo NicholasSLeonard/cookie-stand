@@ -49,8 +49,6 @@ NewCity.prototype.renderRow = function () {
   tr.appendChild(th);
 };
 
-
-
 NewCity.prototype.genSales = function () {
   for (let i = 0; i < dayHours.length; i++) {
     this.hourlySales[i] = genRandom(this.minCustomers, this.maxCustomers);
