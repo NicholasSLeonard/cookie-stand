@@ -54,3 +54,19 @@ height: 50px;
   position: absolute;
   bottom:0
 }
+main {
+  text-align: center;
+}
+main > ul > li {
+  list-style: none;
+
+}
+main > ul > li:before {
+  content: "- ";
+}
+main > ul > li:after {
+  content: " -";
+}
+main > ul {
+  padding-left: 0%;
+}
