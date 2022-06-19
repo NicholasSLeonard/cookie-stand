@@ -1,11 +1,14 @@
 body {
   background-color: rgb(220, 255, 243);
-  padding-left: 10%;
-  padding-right: 10%;
-  min-height: 101%;
+  margin: 0px;
+  
+  font-family: 'Pacifico', cursive;
 }
 header{
   position: relative;
+  background-color:rgb(255,226,219);
+  border-radius: 30px;
+
 }
 nav{
   display: flex;
@@ -32,41 +35,89 @@ a:hover{
   color:blue;
 }
 a:visited{
-  color: blueviolet;
+  color: black;
 }
-.TitleLogo{
+#TitleLogo{
   display: flex;
   margin-bottom: 10px;
   margin-top: 10px;
   position: relative;
 }
-.TitleLogo > img{
-width: 140px;
-height: 50px;
+#TitleLogo > img{
+width: 150;
+height: 60px;
 }
-.TitleLogo > div > h1 {
+#TitleLogo > div > h1 {
   margin: 0px;
   position: absolute;
-  bottom:20
+  bottom:20;
 }
-.TitleLogo > div > h3 {
+#TitleLogo > div > h3 {
   margin: 0px;
   position: absolute;
   bottom:0
 }
 main {
-  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
-main > ul > li {
+main img{
+  border-style: solid;
+  border-color: rgb(145, 144, 144);
+  border-width: 1px;
+}
+main > section{
+  display: flex;
+}
+main > section > div {
+  flex:1;
+}
+main > section > div > img{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+#mainContent {
+  text-align: center;
+  flex: 2;
+  margin-left:5px;
+  margin-right:5px;
+}
+#mainContent > ul > li {
   list-style: none;
+  margin-bottom: 5px;
 
 }
-main > ul > li:before {
+#mainContent > ul > li:before {
   content: "- ";
 }
-main > ul > li:after {
+#mainContent > ul > li:after {
   content: " -";
 }
-main > ul {
+#mainContent > ul {
   padding-left: 0%;
+}
+#mainContent img {
+  height:auto;
+  width:80%;
+}
+#Shop {
+  text-align: center;
+  
+}
+#Shop > div > img {
+  height: auto;
+  width: 50%;
+}
+footer {
+  border-top: 1px;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: black;
+  border-style: dotted;
+  text-align: center;
+  background-color:lightgray;
 }
