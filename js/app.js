@@ -98,14 +98,6 @@ NewCity.prototype.genSales = function () {
 
 let cities = [];
 
-function renderFormRow(event) {
-  event.preventDefault();
-  cities.push(new NewCity(event.target.minCustomers.value, event.target.maxCustomers.value, event.target.avgSales.value, event.target.cityName.value));
-  cities[cities.length - 1].genSales();
-  cities[cities.length - 1].renderRow();
-}
-
-
 function main() {
 
   cities.push(new NewCity(23, 65, 6.3, 'Seattle'));
@@ -121,7 +113,14 @@ function main() {
   }
   renderFooter();
   let formEl = document.getElementById('newCityForm');
-  formEl.addEventListener('submit', renderFormRow(event));
+  formEl.addEventListener('submit', function (event){
+    event.preventDefault();
+    cities.push(new NewCity(parseInt(event.target.minCustomers.value), parseInt(event.target.maxCustomers.value), parseFloat(event.target.avgSales.value), event.target.cityName.value));
+    document.getElementById('footerRow').remove();
+    cities[cities.length - 1].genSales();
+    cities[cities.length - 1].renderRow(cities.length-1);
+    renderFooter();
+  });
 }
 
 main();
