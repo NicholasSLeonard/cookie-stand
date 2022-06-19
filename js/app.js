@@ -46,7 +46,7 @@ function renderHeading() {
 }
 
 function renderFooter() {
-  let tbl = document.getElementById('Sales');
+  let tbl = document.getElementById('SalesTable');
   let tr = document.createElement('tr');
   tr.setAttribute('id', 'footerRow');
   tbl.appendChild(tr);
@@ -71,7 +71,7 @@ function renderFooter() {
 }
 
 NewCity.prototype.renderRow = function (rowNumb) {
-  let tbl = document.getElementById('Sales');
+  let tbl = document.getElementById('SalesTable');
   let tr = document.createElement('tr');
   tr.setAttribute('id', 'row' + rowNumb);
   tbl.appendChild(tr);
