@@ -48,6 +48,7 @@ function renderHeading() {
 function renderFooter() {
   let tbl = document.getElementById('Sales');
   let tr = document.createElement('tr');
+  tr.setAttribute('id', 'footerRow');
   tbl.appendChild(tr);
   let th = document.createElement('th');
   th.appendChild(document.createTextNode('Hourly Totals'));
@@ -69,9 +70,10 @@ function renderFooter() {
   tr.appendChild(th);
 }
 
-NewCity.prototype.renderRow = function () {
+NewCity.prototype.renderRow = function (rowNumb) {
   let tbl = document.getElementById('Sales');
   let tr = document.createElement('tr');
+  tr.setAttribute('id', 'row' + rowNumb);
   tbl.appendChild(tr);
   let th = document.createElement('th');
   th.appendChild(document.createTextNode(this.cityName));
@@ -96,23 +98,31 @@ NewCity.prototype.genSales = function () {
 
 let cities = [];
 
-function newDay() {
+function renderFormRow(event) {
+  event.preventDefault();
+  cities.push(new NewCity(event.target.minCustomers.value, event.target.maxCustomers.value, event.target.avgSales.value, event.target.cityName.value));
+  cities[cities.length - 1].genSales();
+  cities[cities.length - 1].renderRow();
+}
 
-  cities[0] = new NewCity(23, 65, 6.3, 'Seattle');
-  cities[1] = new NewCity(3, 24, 1.2, 'Tokyo');
-  cities[2] = new NewCity(11, 38, 3.7, 'Dubai');
-  cities[3] = new NewCity(20, 38, 2.3, 'Paris');
-  cities[4] = new NewCity(2, 16, 3.6, 'Lima');
-  cities[5] = new NewCity(5, 16, 5.9, 'bob');
-  cities[6] = new NewCity(2, 126, 3.6, 'dsfa');
+
+function main() {
+
+  cities.push(new NewCity(23, 65, 6.3, 'Seattle'));
+  cities.push(new NewCity(3, 24, 1.2, 'Tokyo'));
+  cities.push(new NewCity(11, 38, 3.7, 'Dubai'));
+  cities.push(new NewCity(20, 38, 2.3, 'Paris'));
+  cities.push(new NewCity(2, 16, 3.6, 'Lima'));
 
   renderHeading();
   for (let i = 0; i < cities.length; i++) {
     cities[i].genSales();
-    cities[i].renderRow();
+    cities[i].renderRow(i);
   }
   renderFooter();
+  let formEl = document.getElementById('newCityForm');
+  formEl.addEventListener('submit', renderFormRow(event));
 }
 
-newDay();
+main();
 
