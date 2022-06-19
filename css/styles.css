@@ -1,0 +1,123 @@
+body {
+  background-color: rgb(220, 255, 243);
+  margin: 0px;
+  
+  font-family: 'Pacifico', cursive;
+}
+header{
+  position: relative;
+  background-color:rgb(255,226,219);
+  border-radius: 30px;
+
+}
+nav{
+  display: flex;
+  background-color:rgb(255,226,219);
+  border-radius: 10px;
+  border-color: rgb(145, 144, 144);
+  border-width: 1px;
+  border-style: solid;
+}
+nav > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  background-color:rgb(236, 154, 133) ;
+  border-radius: 10px;
+  border-color: rgb(145, 144, 144);
+  border-width: 1px;
+  border-style: solid;
+  flex:1;
+}
+a:hover{
+  color:blue;
+}
+a:visited{
+  color: black;
+}
+#TitleLogo{
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+#TitleLogo > img{
+width: 150;
+height: 60px;
+}
+#TitleLogo > div > h1 {
+  margin: 0px;
+  position: absolute;
+  bottom:20;
+}
+#TitleLogo > div > h3 {
+  margin: 0px;
+  position: absolute;
+  bottom:0
+}
+main {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+main img{
+  border-style: solid;
+  border-color: rgb(145, 144, 144);
+  border-width: 1px;
+}
+main > section{
+  display: flex;
+}
+main > section > div {
+  flex:1;
+}
+main > section > div > img{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+#mainContent {
+  text-align: center;
+  flex: 2;
+  margin-left:5px;
+  margin-right:5px;
+}
+#mainContent > ul > li {
+  list-style: none;
+  margin-bottom: 5px;
+
+}
+#mainContent > ul > li:before {
+  content: "- ";
+}
+#mainContent > ul > li:after {
+  content: " -";
+}
+#mainContent > ul {
+  padding-left: 0%;
+}
+#mainContent img {
+  height:auto;
+  width:80%;
+}
+#Shop {
+  text-align: center;
+  
+}
+#Shop > div > img {
+  height: auto;
+  width: 50%;
+}
+footer {
+  border-top: 1px;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: black;
+  border-style: dotted;
+  text-align: center;
+  background-color:lightgray;
+}
